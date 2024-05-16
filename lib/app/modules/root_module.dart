@@ -1,11 +1,18 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:login_page_flutter/app/core/transitions/transitions.dart';
-import 'package:login_page_flutter/app/modules/login/login_module.dart';
-import 'package:login_page_flutter/app/modules/welcome/welcome_module.dart';
+
+import '../core/packages/local_storage_service/abstraction/i_local_storage_service.dart';
+import '../core/packages/local_storage_service/implemetation/local_storage_service.dart';
+import '../core/transitions/transitions.dart';
+import 'login/login_module.dart';
+import 'signup/signup_module.dart';
+import 'welcome/welcome_module.dart';
 
 class RootMoodule extends Module {
   @override
-  void binds(Injector i) {}
+  void binds(Injector i) {
+    // Local Storage
+    i.addSingleton<ILocalStorageService>(LocalStorageService.new);
+  }
 
   @override
   void routes(RouteManager r) {
@@ -18,6 +25,12 @@ class RootMoodule extends Module {
     r.module(
       '/login',
       module: LoginModule(),
+      transition: TransitionType.custom,
+      customTransition: moduleTrasition,
+    );
+    r.module(
+      '/signup',
+      module: SignupModule(),
       transition: TransitionType.custom,
       customTransition: moduleTrasition,
     );

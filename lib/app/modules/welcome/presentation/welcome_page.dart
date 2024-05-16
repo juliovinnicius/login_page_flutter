@@ -73,7 +73,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           child: AuthButton(
                             buttonText: 'Cadastrar',
                             color: Colors.white,
-                            route: '',
+                            route: '/signup',
                             textColor: Color(0xFF416FDF),
                           ),
                         ),
