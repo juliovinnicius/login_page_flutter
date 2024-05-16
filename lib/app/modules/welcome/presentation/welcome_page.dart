@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/auth_button.dart';
+
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 
@@ -63,7 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           child: AuthButton(
                             buttonText: 'Login',
                             color: Colors.transparent,
-                            onTap: SizedBox(),
+                            route: '/login',
                             textColor: Colors.white,
                           ),
                         ),
@@ -71,7 +73,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           child: AuthButton(
                             buttonText: 'Cadastrar',
                             color: Colors.white,
-                            onTap: SizedBox(),
+                            route: '',
                             textColor: Color(0xFF416FDF),
                           ),
                         ),
@@ -83,46 +85,6 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class AuthButton extends StatelessWidget {
-  final String buttonText;
-  final Widget onTap;
-  final Color color;
-  final Color textColor;
-
-  const AuthButton({
-    super.key,
-    required this.buttonText,
-    required this.onTap,
-    required this.color,
-    required this.textColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.all(30.0),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(50),
-          ),
-        ),
-        child: Text(
-          buttonText,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            color: textColor,
-          ),
-        ),
       ),
     );
   }
