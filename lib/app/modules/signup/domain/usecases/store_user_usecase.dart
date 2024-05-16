@@ -1,8 +1,9 @@
-import 'package:login_page_flutter/app/core/exceptions/app_exception.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/dto/Signup_dto.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/entites/user_entity.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/repositories/i_signup_repository.dart';
 import 'package:result_dart/result_dart.dart';
+
+import '../../../../core/exceptions/app_exception.dart';
+import '../dto/Signup_dto.dart';
+import '../entites/user_entity.dart';
+import '../repositories/i_signup_repository.dart';
 
 abstract class IStoreUserUseCase {
   AsyncResult<UserEntity, AppException> call(SignupDTO dto);

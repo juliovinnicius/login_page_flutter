@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:login_page_flutter/app/modules/signup/domain/entites/user_entity.dart';
+import '../../domain/entites/user_entity.dart';
 
 class UserAdapter {
   static Future<Map<String, dynamic>> toMap(UserEntity entity) async {

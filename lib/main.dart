@@ -12,7 +12,7 @@ void main() {
     onInitialize: () {
       runApp(
         ModularApp(
-          module: RootMoodule(),
+          module: RootModule(),
           child: const RootWidgetModule(),
         ),
       );

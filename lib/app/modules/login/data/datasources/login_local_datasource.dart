@@ -1,7 +1,6 @@
-import 'package:login_page_flutter/app/modules/login/domain/entites/user_entity.dart';
-import 'package:login_page_flutter/app/modules/login/infra/datasource/i_login_local_datasource.dart';
-
 import '../../../../core/packages/local_storage_service/abstraction/i_local_storage_service.dart';
+import '../../domain/entites/user_entity.dart';
+import '../../infra/datasource/i_login_local_datasource.dart';
 
 class LoginLocalDatasource implements ILoginLocalDataSource {
   final ILocalStorageService _localStorageService;

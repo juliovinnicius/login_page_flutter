@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:login_page_flutter/app/modules/login/domain/entites/user_entity.dart';
-import 'package:login_page_flutter/app/modules/login/presentation/cubit/login_cubit.dart';
 
 import '../../../../core/widgets/input_widget.dart';
+import '../../domain/entites/user_entity.dart';
+import '../cubit/login_cubit.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -48,6 +48,15 @@ class _LoginPageState extends State<LoginPage> {
             ),
             BlocBuilder<LoginCubit, LoginState>(
               builder: (context, state) {
+                if (state is LoginLoaded) {
+                  if (state.isAuth) {
+                    Modular.to.navigate('/home');
+                  } else {
+                    print('DEU RUIM');
+                  }
+                } else {
+                  print('DEU ERRO');
+                }
                 return Column(
                   children: [
                     const Expanded(
@@ -151,15 +160,6 @@ class _LoginPageState extends State<LoginPage> {
                                           pass: _passTextEditingController.text,
                                         );
                                         await loginCubit.login(user);
-                                        if (state is LoginLoaded) {
-                                          if (state.isAuth) {
-                                            print('DEU BOM');
-                                          } else {
-                                            print('DEU RUIM');
-                                          }
-                                        } else {
-                                          print('DEU ERRO');
-                                        }
                                       }
                                     },
                                     child: const Text(

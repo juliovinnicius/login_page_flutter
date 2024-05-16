@@ -1,10 +1,11 @@
-import 'package:login_page_flutter/app/core/exceptions/app_exception.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/dto/Signup_dto.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/entites/user_entity.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/exceptions/signup_exceptions.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/repositories/i_signup_repository.dart';
-import 'package:login_page_flutter/app/modules/signup/infra/datasource/i_signup_local_datasource.dart';
 import 'package:result_dart/result_dart.dart';
+
+import '../../../../core/exceptions/app_exception.dart';
+import '../../domain/dto/Signup_dto.dart';
+import '../../domain/entites/user_entity.dart';
+import '../../domain/exceptions/signup_exceptions.dart';
+import '../../domain/repositories/i_signup_repository.dart';
+import '../datasource/i_signup_local_datasource.dart';
 
 class SignupRepository implements ISignupRepository {
   final ISignupLocalDataSource _localDataSource;

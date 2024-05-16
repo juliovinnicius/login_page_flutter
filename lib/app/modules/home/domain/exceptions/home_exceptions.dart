@@ -1,15 +1,15 @@
 import '../../../../core/exceptions/app_exception.dart';
 
-class SignupException extends AppException {
-  SignupException({
+class HomeException extends AppException {
+  HomeException({
     required super.description,
     super.error,
     super.stackTrace,
   });
 }
 
-class UnableToStoreUserException extends SignupException {
-  UnableToStoreUserException({
+class UnableToGetPersonalDataException extends HomeException {
+  UnableToGetPersonalDataException({
     required super.description,
     super.error,
     super.stackTrace,

@@ -1,18 +1,18 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:login_page_flutter/app/modules/login/data/datasources/login_local_datasource.dart';
-import 'package:login_page_flutter/app/modules/login/domain/repositories/i_login_repository.dart';
-import 'package:login_page_flutter/app/modules/login/domain/usecases/login_usecase.dart';
-import 'package:login_page_flutter/app/modules/login/infra/datasource/i_login_local_datasource.dart';
-import 'package:login_page_flutter/app/modules/login/infra/repositories/login_repository.dart';
-import 'package:login_page_flutter/app/modules/login/presentation/cubit/login_cubit.dart';
-import 'package:login_page_flutter/app/modules/root_module.dart';
 
 import '../../core/transitions/transitions.dart';
+import '../root_module.dart';
+import 'data/datasources/login_local_datasource.dart';
+import 'domain/repositories/i_login_repository.dart';
+import 'domain/usecases/login_usecase.dart';
+import 'infra/datasource/i_login_local_datasource.dart';
+import 'infra/repositories/login_repository.dart';
+import 'presentation/cubit/login_cubit.dart';
 import 'presentation/pages/login_page.dart';
 
 class LoginModule extends Module {
   @override
-  List<Module> get imports => [RootMoodule()];
+  List<Module> get imports => [RootModule()];
 
   @override
   void binds(Injector i) {

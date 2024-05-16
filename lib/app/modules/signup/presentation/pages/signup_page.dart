@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:login_page_flutter/app/modules/signup/domain/entites/user_entity.dart';
-import 'package:login_page_flutter/app/modules/signup/presentation/cubit/signup_cubit.dart';
 
 import '../../../../core/widgets/input_widget.dart';
+import '../../domain/entites/user_entity.dart';
+import '../cubit/signup_cubit.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -49,6 +49,14 @@ class _SignupPageState extends State<SignupPage> {
             ),
             BlocBuilder<SignupCubit, SignupState>(
               builder: (context, state) {
+                if (state is SignupStored) {
+                  Modular.to.navigate('/home');
+                }
+
+                if (state is SignupLoading) {
+                  print('CARREGANDO');
+                }
+
                 return Column(
                   children: [
                     const Expanded(
@@ -146,14 +154,14 @@ class _SignupPageState extends State<SignupPage> {
                                 SizedBox(
                                   width: double.infinity,
                                   child: ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: () async {
                                       if (_formSignupKey.currentState!.validate() && agreePersonalData) {
                                         var user = UserEntity(
                                           name: _nameTextEditingController.text,
                                           email: _emailTextEditingController.text,
                                           pass: _passTextEditingController.text,
                                         );
-                                        signupCubit.storeUser(user);
+                                        await signupCubit.storeUser(user);
                                       } else if (!agreePersonalData) {
                                         ScaffoldMessenger.of(context).showSnackBar(
                                           const SnackBar(content: Text('Porfavor concorde com os termos de uso!')),
@@ -171,7 +179,6 @@ class _SignupPageState extends State<SignupPage> {
                                 const SizedBox(
                                   height: 25.0,
                                 ),
-                                // already have an account
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [

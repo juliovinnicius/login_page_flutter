@@ -1,9 +1,10 @@
-import 'package:login_page_flutter/app/core/exceptions/app_exception.dart';
-import 'package:login_page_flutter/app/modules/login/domain/dto/login_dto.dart';
-import 'package:login_page_flutter/app/modules/login/domain/exceptions/login_exceptions.dart';
-import 'package:login_page_flutter/app/modules/login/domain/repositories/i_login_repository.dart';
-import 'package:login_page_flutter/app/modules/login/infra/datasource/i_login_local_datasource.dart';
 import 'package:result_dart/result_dart.dart';
+
+import '../../../../core/exceptions/app_exception.dart';
+import '../../domain/dto/login_dto.dart';
+import '../../domain/exceptions/login_exceptions.dart';
+import '../../domain/repositories/i_login_repository.dart';
+import '../datasource/i_login_local_datasource.dart';
 
 class LoginRepository implements ILoginRepository {
   final ILoginLocalDataSource _localDataSource;

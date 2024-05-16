@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:login_page_flutter/app/modules/login/domain/dto/login_dto.dart';
-import 'package:login_page_flutter/app/modules/login/domain/usecases/login_usecase.dart';
 
+import '../../domain/dto/login_dto.dart';
 import '../../domain/entites/user_entity.dart';
+import '../../domain/usecases/login_usecase.dart';
 
 part 'login_state.dart';
 
